@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Specific movies, subtitles, audio and metadata files
+*.mp4
+*.srt
+*.mkv
+*.avi
+*.mp3
+*.json
+
+# UV related files
+uv.lock
+uv.log
+
