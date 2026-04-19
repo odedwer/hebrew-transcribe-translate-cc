@@ -71,7 +71,7 @@ def main(video_input, subtitle_output):
         
         print(f"--- Transcribing on {DEVICE} ---")
         model = stable_whisper.load_faster_whisper("ivrit-ai/faster-whisper-v2-d4", device=DEVICE)
-        result = model.transcribe(audio_temp, language='he', vad=True, regroup=True)
+        result = model.transcribe(audio_temp, language='he', vad=False, regroup=True)
         result.save_as_json(CHECKPOINT_FILE)
         
         del model
@@ -79,7 +79,7 @@ def main(video_input, subtitle_output):
 
     # --- 2. REFINEMENT ---
     print("--- Refining Segments ---")
-    result.merge_by_gap(0.4) 
+    result.merge_by_gap(1.5) 
     result.split_by_length(max_chars=55) 
     result.clamp_max(5.0) 
 
